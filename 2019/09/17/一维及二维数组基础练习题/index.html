@@ -2,9 +2,9 @@
 <html>
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
-  <title>分类 | 互问好吧</title>
-  <meta name="keywords" content>
-  <meta name="description" content="分类 | 互问好吧">
+  <title>一维及二维数组基础练习题 | 互问好吧</title>
+  <meta name="keywords" content=" JAVA ">
+  <meta name="description" content="一维及二维数组基础练习题 | 互问好吧">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="主要用于自我总结，如果能恰好帮到你，那是最好不过的了。">
 <meta name="keywords" content="leetcode,java,idea">
@@ -254,24 +254,30 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="page-" class="article article-type-page" itemscope itemprop="blogPost">
+        <article id="post-一维及二维数组基础练习题" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">分类</h1>
+        <h1 class="article-title">一维及二维数组基础练习题</h1>
     
     <div class="article-meta">
         
         
         
+        
+        <span class="tag">
+            
+            <a href="javascript:" class="color5">JAVA</a>
+            
+        </span>
         
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2019-09-16 21:29:44'>2019-09-16 21:17</time>
+        创建时间:<time class="date" title='更新时间: 2019-09-17 19:24:10'>2019-09-17 18:49</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:0</span>
+        <span>字数:1.7k</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -301,7 +307,7 @@
     
     <div class="toc-ref">
     
-        
+        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#练习题1：创建一个长度为6的int型数组，要求数组元素的值都在1-30之间，且是随机赋值，同时，要求元素的值各不同。"><span class="toc-text">练习题1：创建一个长度为6的int型数组，要求数组元素的值都在1-30之间，且是随机赋值，同时，要求元素的值各不同。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#练习题2：使用二维数组打印一个10行杨辉三角。"><span class="toc-text">练习题2：使用二维数组打印一个10行杨辉三角。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#练习题3："><span class="toc-text">练习题3：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#练习题4："><span class="toc-text">练习题4：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#练习题5："><span class="toc-text">练习题5：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#练习题6："><span class="toc-text">练习题6：</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -316,13 +322,275 @@
 </div>
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>Java 一维及二维数组练习题+详解(java)</p>
+<h4 id="练习题1：创建一个长度为6的int型数组，要求数组元素的值都在1-30之间，且是随机赋值，同时，要求元素的值各不同。"><a href="#练习题1：创建一个长度为6的int型数组，要求数组元素的值都在1-30之间，且是随机赋值，同时，要求元素的值各不同。" class="headerlink" title="练习题1：创建一个长度为6的int型数组，要求数组元素的值都在1-30之间，且是随机赋值，同时，要求元素的值各不同。"></a>练习题1：创建一个长度为6的int型数组，要求数组元素的值都在1-30之间，且是随机赋值，同时，要求元素的值各不同。</h4><p>方法一：</p>
+<pre><code class="java">public class testarr {
+    public static void main(String[] args) {
+       int[] arr = new  int[6];
+       for (int i=0;i&lt;arr.length;i++){
+           arr[i]=1+(int)(Math.*random*()*30);
+           for(int j=0;j&lt;i;j++){
+               if (arr[i]==arr[j]){
+                   i--;
+                   break;
+               }
+           }
+       }
+       for (int i=0;i&lt;arr.length;i++){
+           System.*out*.print(arr[i]+&quot;\t&quot;);
+       }
+
+​    }
+}</code></pre>
+<p>方法二：</p>
+<pre><code class="java">int[] arr = new int[6];
+for (int i=0;i&lt;arr.length;i++) {
+    boolean flag = false;
+    int num = 1 + (int) (Math.*random*() * 30);
+    for (int j = 0; j &lt; arr.length; j++) {
+        if (arr[j] == num) {
+            flag = true;
+            break;
+        }
+    }
+    if (flag == true) {
+        i--;
+    } else {
+        arr[i] = num;
+    }
+}
+for (int i=0;i&lt;arr.length;i++){
+    System.*out*.print(arr[i]+&quot;\t&quot;);
+}</code></pre>
+<h4 id="练习题2：使用二维数组打印一个10行杨辉三角。"><a href="#练习题2：使用二维数组打印一个10行杨辉三角。" class="headerlink" title="练习题2：使用二维数组打印一个10行杨辉三角。"></a>练习题2：使用二维数组打印一个10行杨辉三角。</h4><p><strong>提示</strong>：</p>
+<p>  1.第一行有1个元素，第n行有n个元素</p>
+<ol start="2">
+<li><p>每一行的第一个元素和最后一个元素都是1</p>
+</li>
+<li><p>从第三行开始，对于非第一个元素和最后一个元素。</p>
+</li>
+</ol>
+<p>即他们之间的关系为：</p>
+<p>Yanghui[i][j]=yanghui[i-1][j-1]+yanghui[i-1][j]</p>
+<pre><code class="java">
+
+int x=10;//输入几层是几层
+int num[][] = new int[x][x];//这个数组有几层
+for(int m=0;m&lt;x;m++)//主要是对数组进行赋值
+{
+    for(int n=0;n&lt;=m;n++)//每一层的个数都是小于等于层数的，m代表层数，n代表着第几个数
+    {
+        if(n==0||m==n)//每一层的开头都是1，m==n的时候也是1,必须要这个，凡事都得有个开头
+        {
+            num[m][n]=1;
+        }
+        else
+            num[m][n]=num[m-1][n-1]+num[m-1][n];//这个就是递推的方法了，例如3=1+2，3的坐标就是3[3,1]=1[2,0]+2[2,1];
+    }
+}
+for(int i=0;i&lt;x;i++)//主要是输出数组
+{
+    for(int l=i;l&lt;x;l++)//这个主要是打空格，好看一点，去掉就是直角三角形了
+    {
+        System.*out*.print(&quot; &quot;);
+    }
+    for(int j=x-i;j&lt;=x;j++)//这个就是打印数组了，每层循环几次就几个
+    {
+        System.*out*.print(num[i][x-j]+&quot; &quot;);//不懂的可以把x替换成10，更加清楚点
+    }
+    System.*out*.println();//每层换行
+}</code></pre>
+<h4 id="练习题3："><a href="#练习题3：" class="headerlink" title="练习题3："></a>练习题3：</h4><p>求数值型数组中元素的最大值，最小值，平均值，总和等</p>
+<p>定义一个int型的一维数组，包含10个元素，分别赋一些两位数随机整数，然后求出所有元素的最大值，最小值，和，平均值，并输出出来。要求：所有的随机数都是两位数。</p>
+<p><strong>分析</strong>：如何正确通过Math.random()获得两位数的随机整数。</p>
+<p>两位数即[10,99]—&gt;此范围为闭区间。10标记为A，99标记为B。</p>
+<p>Math.random()*(B-A+1)+A—-&gt;此结果为double类型转换为int型</p>
+<p>(int)(Math.random()*(B-A+1)+A).一定要把整个公式用括号括起来！！即(int)后面的必须用另一个全部括起来！千万不要忘记。</p>
+<pre><code class="java">int[] arr = new int[10];
+int max=0,min=0,sum=0;
+for(int i=0;i&lt;arr.length;i++){
+    arr[i]=(int)(Math.*random*()*(99-10+1)+10);
+    if (i==0){
+        max=arr[i];
+        min=arr[i];
+    }
+    if (max&lt;arr[i]){
+        max = arr[i];
+    }
+    if (min&gt;arr[i]){
+        min = arr[i];
+    }
+    sum+=arr[i];
+}
+for(int i=0;i&lt;arr.length;i++){
+    System.*out*.print(arr[i]+&quot;\t&quot;);
+}
+
+System.*out*.println(&quot;该数组的最大值:&quot;+max+&quot;,最小值:&quot;+min+&quot;,总和:&quot;+sum+&quot;,平均值:&quot;+(sum/arr.length));
+
+</code></pre>
+<h4 id="练习题4："><a href="#练习题4：" class="headerlink" title="练习题4："></a>练习题4：</h4><ol>
+<li><p>创建一个名为ArrayTest的类，在main()方法中声明array1和array2两个变量，他们是int[]类型的数组。</p>
+</li>
+<li><p>使用大括号{}，把array1初始化为8个素数:2,3,5,7,11,13,17,19.</p>
+</li>
+<li><p>显示array1的内容。</p>
+</li>
+<li><p>赋值array2变量等于array1，修改array2中的偶索引元素，使其等于索引值(如array[0]=0,array[2]=2)，打印出array。</p>
+</li>
+<li><p>思考：array1和array2是什么关系？</p>
+</li>
+</ol>
+<pre><code class="java">
+public class ArrayTest {
+    public static void main(String[] args) {
+        int[] array1 = new int[]{2,3,5,7,11,13,17,19};
+        int[] array2;
+        System.*out*.println(&quot;这是第一次显示array1的内容&quot;);
+        for (int i=0;i&lt;array1.length;i++){
+            System.*out*.print(array1[i]+&quot;\t&quot;);
+        }
+        array2=array1;//这里其实只是把array1的地址给了array2,在堆空间中，只有一个数组,这个操作不能叫做数组的复制，只是数组的赋值。
+        for (int i=0;i&lt;array2.length;i+=2){
+            array2[i]=i;
+        }
+        System.*out*.println(&quot;这是第二次显示array1的内容&quot;);
+        for (int i=0;i&lt;array1.length;i++){
+            System.*out*.print(array1[i]+&quot;\t&quot;);
+        }
+
+
+    }
+}</code></pre>
+<p><strong>拓展</strong>：修改题目，实现array2对array1数组的复制。</p>
+<p>//数组的复制<br>array2 = new int[array1.length];<br>for (int i=0;i&lt;array1.length;i++){<br>    array2[i]=array1[i];<br>}</p>
+<h4 id="练习题5："><a href="#练习题5：" class="headerlink" title="练习题5："></a>练习题5：</h4><p>数组的二分法查找（<strong>前提是该数组必须为有序</strong>）</p>
+<pre><code class="java">import java.util.Scanner;
+
+public class test {
+    public static void main(String[] args) {
+        int[] arr = new int[]{-30,-25,-1,5,6,8,9,45,89,97,108,209};
+        Scanner sc = new Scanner(System.*in*);
+        System.*out*.println(&quot;请输入要查找的目标：&quot;);
+        int target=sc.nextInt();
+        int head = 0;//头指针
+        int end = arr.length-1;//尾指针
+        int middle;//中间点
+        boolean flag = true;
+        while (head&lt;=end){//头指针的数值不能大于尾指针
+            middle=(head+end)/2;
+            if(arr[middle] ==target){//找到目标
+                System.*out*.println(&quot;已找到目标，位置为：&quot;+middle);
+                flag = false;
+                break;
+            }else if (arr[middle]&gt;target){//目标比中间点小，说明目标在左侧，所以令end的值等于中间点-1
+                end = middle-1;
+
+​            }else if(arr[middle]&lt;target){//目标比中间点大，说明目标在中间点的右侧
+​                head=middle+1;
+​            }
+​        }
+​        if(flag==true)
+​        System.*out*.println(&quot;未找到目标！&quot;);
+
+
+    }
+}
+
+</code></pre>
+<h4 id="练习题6："><a href="#练习题6：" class="headerlink" title="练习题6："></a>练习题6：</h4><p>数组的排序（<strong>重点：冒泡/快排；了解原理：堆排序，并归排序</strong>）</p>
+<p><img src="C:%5CUsers%5C1%5Cblog%5Csource%5Cimg%5C%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E5%88%86%E7%B1%BB.png" alt="排序算法分类"></p>
+<p><img src="C:%5CUsers%5C1%5Cblog%5Csource%5Cimg%5C%E7%AE%97%E6%B3%95%E7%9A%845%E5%A4%A7%E7%89%B9%E5%BE%81.png" alt="算法的5大特征"></p>
+<p><strong>冒泡排序的实现/应用:</strong></p>
+<pre><code class="java">public class BubbleSortTest {
+    public static void main(String[] args) {
+        int[] arr = new int[]{2,54,2,5,4,1,47,5,2,-58,-14,-541,-55,78,52,9442};
+        for (int i=0;i&lt;arr.length-1;i++){//循环/排序 数组长度-1轮
+            for (int j=0;j&lt;arr.length-1-i;j++){//j&lt;arr.length-1-i  --&gt;保证每一轮最后一个数都不再进行比较
+
+                if(arr[j]&gt;arr[j+1]){
+                    int num = arr[j];
+                    arr[j] = arr[j+1];
+                    arr[j+1]=num;
+                }
+
+            }
+
+
+        }
+        //遍历数组
+
+        System.out.println(&quot;排序后的数组为：&quot;);
+        for (int i=0;i&lt;arr.length;i++){
+            System.out.print(arr[i]+&quot; &quot;);
+        }
+
+    }
+}</code></pre>
+<p><strong>快速排序的实现/应用:</strong></p>
+<pre><code class="java">
+public class QuickSort {
+    private static void swap(int[] data,int i,int j){
+        int temp = data[i];
+        data[i] = data[j];
+        data[j] = temp;
+    }
+
+    private static void subSort(int[] data,int start,int end){
+        if(start&lt;end){
+            int base = data[start];
+            int low = start;
+            int high = end +1;
+
+            while (true){
+                while(low&lt;end&amp;&amp;data[++low]-base&lt;=0)
+                    ;
+                while (high&gt;start&amp;&amp;data[--high]-base&gt;=0)
+                    ;
+                if(low&lt;high){
+                    swap(data,low,high);
+                }else{
+                    break;
+                }
+
+            }
+
+            swap(data,start,high);
+            subSort(data,start,high-1);
+            subSort(data,high+1,end);
+
+        }
+
+    }
+    public static void quickSort(int[] data){
+        subSort(data,0,data.length-1);
+    }
+
+}
+</code></pre>
+<p><strong>排序算法性能对比</strong></p>
+<p><img src="C:%5CUsers%5C1%5Cblog%5Csource%5Cimg%5C%E7%AE%97%E6%B3%95%E7%9A%84%E6%80%A7%E8%83%BD%E5%AF%B9%E6%AF%94.png" alt="算法的性能对比"></p>
+<p><strong>没有十全十美的算法。</strong></p>
+<p><img src="C:%5CUsers%5C1%5Cblog%5Csource%5Cimg%5C%E5%90%84%E4%B8%AA%E8%A7%92%E5%BA%A6%E5%88%86%E6%9E%90.png" alt></p>
+
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 863012613@qq.com </span>
     </div>
 </article>
 
 
+
+<div class="article_copyright">
+    <p><span class="copy-title">文章标题:</span>一维及二维数组基础练习题</p>
+    <p><span class="copy-title">文章字数:</span><span class="post-count">1.7k</span></p>
+    <p><span class="copy-title">本文作者:</span><a href="javascript:void(0)" title="互问好吧">互问好吧</a></p>
+    <p><span class="copy-title">发布时间:</span>2019-09-17, 18:49:30</p>
+    <p><span class="copy-title">最后更新:</span>2019-09-17, 19:24:10</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/09/17/一维及二维数组基础练习题/" title="一维及二维数组基础练习题">http://yoursite.com/2019/09/17/一维及二维数组基础练习题/</a>
+    <p>
+        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+    </p>
+</div>
 
 
 
