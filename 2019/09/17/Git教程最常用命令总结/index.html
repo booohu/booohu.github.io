@@ -2,9 +2,9 @@
 <html>
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
-  <title>标签 | 互问好吧</title>
-  <meta name="keywords" content>
-  <meta name="description" content="标签 | 互问好吧">
+  <title>Git教程最常用命令总结 | 互问好吧</title>
+  <meta name="keywords" content=" -Git ">
+  <meta name="description" content="Git教程最常用命令总结 | 互问好吧">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="主要用于自我总结，如果能恰好帮到你，那是最好不过的了。">
 <meta name="keywords" content="leetcode,java,idea">
@@ -278,24 +278,30 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="page-" class="article article-type-page" itemscope itemprop="blogPost">
+        <article id="post-Git教程最常用命令总结" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">标签</h1>
+        <h1 class="article-title">Git教程最常用命令总结</h1>
     
     <div class="article-meta">
         
         
         
+        
+        <span class="tag">
+            
+            <a href="javascript:" class="color5">-Git</a>
+            
+        </span>
         
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2019-09-16 21:30:20'>2019-09-16 21:19</time>
+        创建时间:<time class="date" title='更新时间: 2019-09-17 19:44:55'>2019-09-17 19:42</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:0</span>
+        <span>字数:1.2k</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -340,13 +346,34 @@
 </div>
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>###<strong>Git教程总结</strong> 仓库地址 <a href="mailto:git@192.168.1.14" target="_blank" rel="noopener">git@192.168.1.14</a>:~/diary.git </p>
+<p><strong><em>\</em>创建版本库**</strong> &gt;初始化一个Git仓库，使用<strong><em>\</em>git init**</strong>命令。 添加文件到Git仓库，分两步： 使用命令<strong><em>\</em>git add filename**</strong>，注意，可反复多次使用，添加多个文件； 使用命令<strong><em>\</em>git commit -m “message”**</strong>，完成。</p>
+<p> <strong><em>\</em>版本回退**</strong> &gt;要随时掌握工作区的状态，使用<strong><em>\</em>git status**</strong>命令。 如果git status告诉你有文件被修改过，用<strong><em>\</em>git diff**</strong>可以查看修改内容。 HEAD指向的版本就是当前版本，因此，Git允许我们在版本的历史之间穿梭，使用命令<strong><em>\</em>git reset –hard commit_id**</strong>。 穿梭前，用<strong><em>\</em>git log**</strong>可以查看提交历史，以便确定要回退到哪个版本。 要重返未来，用<strong><em>\</em>git reflog**</strong>查看命令历史，以便确定要回到未来的哪个版本。</p>
+<p> <strong><em>\</em>工作区和暂存区**</strong> &gt;<strong><em>\</em>git diff –cached**</strong> 比较的是暂存区的文件与仓库分支里（上次git commit 后的内容）的区别。 <strong><em>\</em>git diff HEAD – file**</strong>命令可以查看工作区和版本库里面最新版本的区别。</p>
+<p> <strong><em>\</em>撤销修改**</strong> &gt;场景1：当你改乱了工作区某个文件的内容，想直接丢弃工作区的修改时，用命令<strong><em>\</em>git checkout – file**</strong>。 场景2：当你不但改乱了工作区某个文件的内容，还添加到了暂存区时，想丢弃修改，分两步，第一步用命令<strong><em>\</em>git reset HEAD <file>**</file></strong>，就回到了场景1，第二步按场景1操作。 场景3：已经提交了不合适的修改到版本库时，想要撤销本次提交，参考<strong><em>\</em>版本回退**</strong>一节，不过前提是没有推送到远程库。</p>
+<p> <strong><em>\</em>删除文件**</strong> &gt;1.如果你用的<strong><em>\</em>rm**</strong>删除文件，那就相当于只删除了工作区的文件，如果想要恢复，直接用<strong><em>\</em>git checkout – <file>**</file></strong>就可以 2.如果你用的是<strong><em>\</em>git rm**</strong>删除文件，那就相当于不仅删除了文件，而且还添加到了暂存区，需要先<strong><em>\</em>git reset HEAD <file>**</file></strong>，然后再<strong><em>\</em>git checkout – <file>**</file></strong> 3.如果你想彻底把版本库的删除掉，先<strong><em>\</em>git rm**</strong>，再<strong><em>\</em>git commit**</strong> 就ok了</p>
+<p> <strong><em>\</em>远程提交**</strong> &gt;要关联一个远程库，使用命令git remote add origin git@server-name:path/repo-name.git；关联后，使用命令git push -u origin master第一次推送master分支的所有内容；从现在起，只要本地作了<strong><em>\</em>提交**</strong>，就可以通过命令：<strong><em>\</em>git push origin master(分支名)**</strong> <strong><em>\</em>分支**</strong> &gt;查看分支：git branch 创建分支：git branch name 切换分支：git checkout name 创建+切换分支：git checkout -b name 合并某分支到当前分支：git merge name 删除分支：git branch -d name 用git log –graph命令可以看到分支合并图 合并分支时，加上–no-ff参数就可以用普通模式合并，合并后的历史有分支，能看出来曾经做过合并，而fast forward合并就看不出来曾经做过合并。 准备合并dev分支，请注意–no-ff参数，表示禁用Fast forward： git merge –no-ff -m “merge with no-ff” dev </p>
+<p><strong><em>\</em>多人协作**</strong> &gt;因此，多人协作的工作模式通常是这样： 首先，可以试图用git push origin branch-name推送自己的修改； 如果推送失败，则因为远程分支比你的本地更新，需要先用git pull试图合并； 如果合并有冲突，则解决冲突，并在本地提交； 没有冲突或者解决掉冲突后，再用git push origin branch-name推送就能成功！ 如果git pull提示no tracking information，则说明本地分支和远程分支的链接关系没有创建，用命令git branch –set-upstream-to branch-name origin/branch-name。 查看远程库信息，使用git remote -v； 本地新建的分支如果不推送到远程，对其他人就是不可见的； 从本地推送分支，使用git push origin branch-name，如果推送失败，先用git pull抓取远程的新提交； 在本地创建和远程分支对应的分支，使用git checkout -b branch-name origin/branch-name，本地和远程分支的名称最好一致； 建立本地分支和远程分支的关联，使用git branch –set-upstream branch-name origin/branch-name； 从远程抓取分支，使用git pull，如果有冲突，要先处理冲突。</p>
+<p> <strong><em>\</em>标签**</strong> &gt; 命令git tag &lt;<strong>tagname</strong>&gt;用于新建一个标签，默认为HEAD，也可以指定一个commit id； 命令git tag -a &lt;<strong>tagname</strong>&gt; -m “blablabla…”可以指定标签信息. 命令git tag可以查看所有标签。 命令git push origin &lt;<strong>tagname</strong>&gt;可以推送一个本地标签； 命令git push origin –tags可以推送全部未推送过的本地标签； 命令git tag -d &lt;<strong>tagname</strong>&gt;可以删除一个本地标签； 命令git push origin :refs/tags/&lt;<strong>tagname</strong>&gt;可以删除一个远程标签。</p>
+
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 863012613@qq.com </span>
     </div>
 </article>
 
 
+
+<div class="article_copyright">
+    <p><span class="copy-title">文章标题:</span>Git教程最常用命令总结</p>
+    <p><span class="copy-title">文章字数:</span><span class="post-count">1.2k</span></p>
+    <p><span class="copy-title">本文作者:</span><a href="javascript:void(0)" title="互问好吧">互问好吧</a></p>
+    <p><span class="copy-title">发布时间:</span>2019-09-17, 19:42:54</p>
+    <p><span class="copy-title">最后更新:</span>2019-09-17, 19:44:55</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/09/17/Git教程最常用命令总结/" title="Git教程最常用命令总结">http://yoursite.com/2019/09/17/Git教程最常用命令总结/</a>
+    <p>
+        <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+    </p>
+</div>
 
 
 
